@@ -1,0 +1,519 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src= "Factorial.js" type="text\javascript"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+  
+    * {box-sizing: border-box}
+    body {font-family: "Lato", sans-serif; background-color: lavender;}
+
+    /* Style the tab content */
+    .tabcontent {
+      float: left;
+      padding: 0px 12px;
+      border: 1px solid #ccc;
+      width: 50%;
+      margin-left: 2%;
+      margin-top: 2%;
+      height: 100%;
+      background-color:white;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    .tabcontent1 {
+      float: right;
+      padding: 0px 12px;
+      border: 1px solid #ccc;
+      width: 45%;
+      margin-top: 2%;
+      margin-right: 2%;
+      height: 100%;
+      background-color:white;
+    }
+
+    .btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 5px;
+      padding-right: 10px;
+      font-size: 16px;
+      border: none;
+    }
+
+    #code {
+      margin-top: 5px;
+      border-radius: 5px;
+      padding: 5px;
+      border: thin solid black;
+    }
+    div.scroll {
+      width: 540px;
+      height: 300px;
+      overflow-x: auto;
+      overflow-y: auto;
+      text-align: left;
+      padding: 20px;
+    }
+
+    .menuborder {
+        border-style: solid;
+        border-width: 1px;
+        border-color: #ffffff black #ffffff #ffffff;
+    }
+
+    .mainmenu {
+      margin-left: 10%;
+      padding-left: 5px;
+      height: 10px;
+      font-size: 13px;
+      width: max-content;
+    }
+
+    .mainmenu ul#nav {
+      list-style: outside none none;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      width: max-content;
+    }
+
+    .mainmenu ul#nav li {
+      display: inline-block;
+      position: relative;
+    }
+
+    .mainmenu ul#nav li a {
+      color:black;
+      display: block;
+      margin: 0 -2px;
+      padding: 2px 15px;
+      text-transform: uppercase;
+      width: max-content;
+    }
+
+    .mainmenu ul#nav li:hover>a {
+      background: #b3c496 none repeat scroll 0 0;
+      width: max-content;
+    }
+
+    /*=================
+    DropDown Menu
+    ===================*/
+
+    #nav>li {
+    position: relative;
+    }
+
+    #nav>li:hover ul {
+    opacity: 1;
+    z-index: 9999;
+    top: 100%;
+    visibility: visible;
+    }
+
+    #nav>li ul {
+    background: #fff none repeat scroll 0 0;
+    opacity: 0;
+    left: -2px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-align: left;
+    transition: all 0.5s ease 0s;
+    width: 204px;
+    padding-left: 2px;
+    z-index: -99999;
+    top: 150%;
+    visibility: hidden
+    }
+
+    #nav>li ul li {
+    display: block;
+    width: 200px;
+    }
+
+    .mainmenu ul#nav li ul li a:hover {
+    color: #fff;
+    border-radius: 0 0 80px 0;
+    border-left: 4px solid #000;
+    padding-left: 10px;
+    }
+
+    .mainmenu ul#nav li ul li a {
+    border-bottom: 1px solid #ddd;
+    color: #000;
+    padding: 10px 10px;
+    }
+
+    .mainmenu ul#nav li ul li.sub-sub-menu ul {
+    position: absolute;
+    left: 100%;
+    top: 0px;
+    display: none;
+    }
+
+    .mainmenu ul#nav li ul li.sub-sub-menu:hover ul {
+    display: block;
+    }
+
+</style>
+</head>
+<body>
+    <h1 align="center" style="font-style: oblique;">Data Structures and Algorithms Problem Solving</h1>
+       
+<div class="col-md-5 col-lg-5">
+  <div class="mainmenu nav">
+    <ul id="nav">
+      <li class="menuborder"><a href="#">Section 1</a>
+        <ul>
+          <li><a  onclick="openPage('BigO', this, '#777')" id="defaultOpen">Big O Notation</a></li>
+        </ul>
+      </li>
+
+      <li class="menuborder"><a href="#">Section 2</a>
+        <ul>
+          <li class='sub-sub-menu'><a href="#">Frequency Counter</a>
+            <ul>
+              <li><a onclick="openPage('validAnagram', this, '#777')" >Valid Anagram</a></li>
+              <li><a onclick="openPage('sameFrequency', this, '#777')">Same frequency</a></li>
+              <li><a onclick="openPage('areThereDuplicates', this, '#777')" >Are there duplicates</a></li>
+            </ul>
+          </li>
+
+          <li class='sub-sub-menu'><a href="#">Multiple Pointers</a>
+            <ul>
+              <li><a onclick="openPage('countUniqueValues', this, '#777')" >Count unique values</a></li>
+              <li><a onclick="openPage('averagePair', this, '#777')" >Average Pair</a></li>
+              <li><a onclick="openPage('isSubsequence', this, '#777')" >Is Subsequence</a></li>
+            </ul>
+          </li>
+
+          <li class='sub-sub-menu'><a href="#">Sliding Window</a>
+            <ul>
+              <li><a onclick="openPage('maxSubarraySum', this, '#777')" >Max Subarray Sum</a></li>
+              <li><a onclick="openPage('minSubArrayLen', this, '#777')" >Min SubArray Length</a></li>
+              <li><a onclick="openPage('findLongestSubstring', this, '#777')" >Find Longest Substring</a></li>
+            </ul>
+          </li>
+
+          <li class='sub-sub-menu'><a href="#">Divide and Conquer</a>
+            <ul>
+              
+            </ul>
+          </li>
+
+        </ul>
+      </li>
+
+      <li class="menuborder"><a href="#">Section 3</a>
+        <ul>
+          
+        </ul>
+      </li>
+
+      <li class="menuborder"><a href="#">Section 4</a>
+        <ul>
+          
+        </ul>
+      </li>
+
+      <li class="menuborder"><a href="#">Section 5</a>
+        <ul>
+          
+        </ul>
+      </li>
+
+      <li class="menuborder"><a href="#">Section 6</a>
+        <ul>
+          
+        </ul>
+      </li>
+
+      <li class="menuborder"><a href="#">Section 7</a>
+        <ul>
+          
+        </ul>
+      </li>
+
+      <li class="menuborder"><a href="#">Section 8</a>
+        <ul>
+          
+        </ul>
+      </li>
+
+      <li class="menuborder"><a href="#">Section 9</a>
+        <ul>
+          
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+</div>
+   
+    <div id="BigO" class="tabcontent">
+      <h1 align="center" style="font-style: oblique;">Big O Notation</h1>
+      
+      <h2 id="definition">Definition</h2>
+      <p>When we compute the <a href="/algorithms/time-complexity-explained/">time complexity</a>&nbsp;T(<i>n</i>)
+        of an algorithm we rarely get an exact result, just an estimate. That’s fine, in computer science we are typically
+        only interested in how fast T(<i>n</i>) is growing as a function of the input size&nbsp;<i>n</i>.</p>
+      
+        <p>For example, if an algorithm increments each number in a list of length&nbsp;<i>n</i>,
+          we might say: “This algorithm runs in <i>O</i>(<i>n</i>) time and performs <i>O</i>(1) work for each element”.</p>
+        
+        <p>Here is the formal mathematical definition of Big&nbsp;O.</p>
+        <blockquote class="math">
+          Let T(<i>n</i>) and f(<i>n</i>) be two positive functions.
+          We write <b>T(<i>n</i>)&nbsp;∊&nbsp;<i>O</i>(f(<i>n</i>))</b>, and say that
+          T(<i>n</i>) has order of&nbsp;f(<i>n</i>),
+          if there are positive constants M and n₀ such that
+          T(<i>n</i>)&nbsp;≤&nbsp;M·f(<i>n</i>) for all&nbsp;<i>n</i>&nbsp;≥&nbsp;n₀.
+          </blockquote>
+    </div>
+    
+    <div id="validAnagram" class="tabcontent">
+        <h1 align="center" style="font-style: oblique;">Valid Anagram</h1>
+        
+        <p>
+            Given two strings, write a function to determine if the second string is an anagram of the first.
+            An anagram is a word, phrase, or name formed by rearranging the letters of another, such as 
+            <i>cinema</i>, formed from <i>iceman</i>.
+        </p>
+        <p><b>Examples:</b></p>
+        <div class="ud-component--base-components--code-block"><div><pre class="prettyprint linenums prettyprinted" role="presentation" style=""><ol class="linenums"><li class="L0"><span class="pln">validAnagram</span><span class="pun">(</span><span class="str">''</span><span class="pun">,</span><span class="pln"> </span><span class="str">''</span><span class="pun">)</span><span class="pln"> </span><span class="com">// true</span></li><li class="L1"><span class="pln">validAnagram</span><span class="pun">(</span><span class="str">'aaz'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'zza'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// false</span></li><li class="L2"><span class="pln">validAnagram</span><span class="pun">(</span><span class="str">'anagram'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'nagaram'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// true</span></li><li class="L3"><span class="pln">validAnagram</span><span class="pun">(</span><span class="str">"rat"</span><span class="pun">,</span><span class="str">"car"</span><span class="pun">)</span><span class="pln"> </span><span class="com">// false) // false</span></li><li class="L4"><span class="pln">validAnagram</span><span class="pun">(</span><span class="str">'awesome'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'awesom'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// false</span></li><li class="L5"><span class="pln">validAnagram</span><span class="pun">(</span><span class="str">'amanaplanacanalpanama'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'acanalmanplanpamana'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// false</span></li><li class="L6"><span class="pln">validAnagram</span><span class="pun">(</span><span class="str">'qwerty'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'qeywrt'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// true</span></li><li class="L7"><span class="pln">validAnagram</span><span class="pun">(</span><span class="str">'texttwisttime'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'timetwisttext'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// true</span></li></ol></pre></div></div>
+        <p><b>Note: </b>You may assume the string contains only lowercase alphabets.</p>
+        
+        <p>Time Complexity - O(n)</p>
+    </div>
+
+    <div id="sameFrequency" class="tabcontent">
+      <h1 align="center" style="font-style: oblique;">Same Frequency</h1>
+      
+      <p>Write a function called <b>sameFrequency. </b>Given two positive integers, find out if the two numbers have the same frequency of digits.</p>
+      <p>Your solution MUST have the following complexities:</p>
+      <p>Time: O(N)</p>
+      <p>Sample Input:</p>
+      <div class="ud-component--base-components--code-block"><div><pre class="prettyprint linenums prettyprinted" role="presentation" style=""><ol class="linenums"><li class="L0"><span class="pln">sameFrequency</span><span class="pun">(</span><span class="lit">182</span><span class="pun">,</span><span class="lit">281</span><span class="pun">)</span><span class="pln"> </span><span class="com">// true</span></li><li class="L1"><span class="pln">sameFrequency</span><span class="pun">(</span><span class="lit">34</span><span class="pun">,</span><span class="lit">14</span><span class="pun">)</span><span class="pln"> </span><span class="com">// false</span></li><li class="L2"><span class="pln">sameFrequency</span><span class="pun">(</span><span class="lit">3589578</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5879385</span><span class="pun">)</span><span class="pln"> </span><span class="com">// true</span></li><li class="L3"><span class="pln">sameFrequency</span><span class="pun">(</span><span class="lit">22</span><span class="pun">,</span><span class="lit">222</span><span class="pun">)</span><span class="pln"> </span><span class="com">// false</span></li></ol></pre></div></div>
+      <p><br></p>
+      
+      <p>Implement a function called, <strong>areThereDuplicates</strong> which accepts a <strong>variable number of arguments, </strong>and<em> </em>checks whether there are any duplicates among the arguments passed in.&nbsp; You can solve this using the frequency counter pattern OR the multiple pointers pattern.</p>
+    </div>
+
+    <div id="areThereDuplicates" class="tabcontent">
+      <h1 align="center" style="font-style: oblique;">Are there Duplicates</h1>
+      
+      <p>Implement a function called, <strong>areThereDuplicates</strong> which accepts a <strong>variable number of arguments, </strong>and<em> </em>checks whether there are any duplicates among the arguments passed in.&nbsp; You can solve this using the frequency counter pattern OR the multiple pointers pattern.</p>
+      <p>Examples:</p>
+      <div class="ud-component--base-components--code-block"><div><pre class="prettyprint linenums prettyprinted" role="presentation" style=""><ol class="linenums"><li class="L0"><span class="pln">areThereDuplicates</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">)</span><span class="pln"> </span><span class="com">// false</span></li><li class="L1"><span class="pln">areThereDuplicates</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">)</span><span class="pln"> </span><span class="com">// true </span></li><li class="L2"><span class="pln">areThereDuplicates</span><span class="pun">(</span><span class="str">'a'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'b'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'c'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'a'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// true </span></li></ol></pre></div></div>
+      <p><strong>Restrictions:</strong></p>
+      <p>Time - O(n) </p>
+      <p>Space - O(n) </p>
+      <p><strong>Bonus:</strong></p>
+      <p>Time - O(n log n)</p>
+      <p>Space - O(1)</p>
+    </div>
+    
+    <div id="countUniqueValues" class="tabcontent">
+        <h1 align="center" style="font-style: oblique;">Count Unique Values</h1>
+        
+        <p>
+            Implement a function called <b>countUniqueValues, 
+            </b>which accepts a sorted array, and counts the unique values in the array. 
+            There can be negative numbers in the array, but it will always be sorted.</p>
+        <p>
+        <div class="ud-component--base-components--code-block"><div><pre class="prettyprint linenums prettyprinted" role="presentation" style=""><ol class="linenums"><li class="L0"><span class="pln">countUniqueValues</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="lit">1</span><span class="pun">,</span><span class="lit">1</span><span class="pun">,</span><span class="lit">1</span><span class="pun">,</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">])</span><span class="pln"> </span><span class="com">// 2</span></li><li class="L1"><span class="pln">countUniqueValues</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,</span><span class="lit">7</span><span class="pun">,</span><span class="lit">7</span><span class="pun">,</span><span class="lit">12</span><span class="pun">,</span><span class="lit">12</span><span class="pun">,</span><span class="lit">13</span><span class="pun">])</span><span class="pln"> </span><span class="com">// 7</span></li><li class="L2"><span class="pln">countUniqueValues</span><span class="pun">([])</span><span class="pln"> </span><span class="com">// 0</span></li><li class="L3"><span class="pln">countUniqueValues</span><span class="pun">([-</span><span class="lit">2</span><span class="pun">,-</span><span class="lit">1</span><span class="pun">,-</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">1</span><span class="pun">])</span><span class="pln"> </span><span class="com">// 4</span></li></ol></pre></div></div>
+        <p>Time Complexity - O(n)</p>
+        <p>Space Complexity - O(n)</p>
+        <p><b>Bonus</b></p>
+        <p>You must do this with constant or O(1) space and O(n) time.</p>
+    </div>
+
+    <div id="averagePair" class="tabcontent">
+      <h1 align="center" style="font-style: oblique;">Average Pair</h1>
+      
+      <p>Write a function called <b>averagePair.</b> Given a sorted array of integers and a target average, determine if there is a pair of values in the array where the average of the pair equals the target average. There may be more than one pair that matches the average target.</p>
+      <p><b>Bonus Constraints:</b></p>
+      <p>Time: O(N)</p>
+      <p>Space: O(1)</p>
+      <p>Sample Input:</p>
+      <div class="ud-component--base-components--code-block"><div><pre class="prettyprint linenums prettyprinted" role="presentation" style=""><ol class="linenums"><li class="L0"><span class="pln">averagePair</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">],</span><span class="lit">2.5</span><span class="pun">)</span><span class="pln"> </span><span class="com">// true</span></li><li class="L1"><span class="pln">averagePair</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">5</span><span class="pun">,</span><span class="lit">6</span><span class="pun">,</span><span class="lit">7</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">12</span><span class="pun">,</span><span class="lit">19</span><span class="pun">],</span><span class="lit">8</span><span class="pun">)</span><span class="pln"> </span><span class="com">// true</span></li><li class="L2"><span class="pln">averagePair</span><span class="pun">([-</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,</span><span class="lit">5</span><span class="pun">,</span><span class="lit">6</span><span class="pun">],</span><span class="pln"> </span><span class="lit">4.1</span><span class="pun">)</span><span class="pln"> </span><span class="com">// false</span></li><li class="L3"><span class="pln">averagePair</span><span class="pun">([],</span><span class="lit">4</span><span class="pun">)</span><span class="pln"> </span><span class="com">// false</span></li></ol></pre></div></div>
+    </div>
+
+    <div id="isSubsequence" class="tabcontent">
+      <h1 align="center" style="font-style: oblique;">Is Subsequence</h1>
+      
+      <p>Write a function called<strong> isSubsequence</strong> which takes in two strings and checks whether the characters in the first string form a subsequence of the characters in the second string. In other words, the function should check whether the characters in the first string appear somewhere in the second string, <strong>without their order changing.</strong></p>
+      <p>Examples: </p>
+      <div class="ud-component--base-components--code-block"><div><pre class="prettyprint linenums prettyprinted" role="presentation" style=""><ol class="linenums"><li class="L0"><span class="pln">isSubsequence</span><span class="pun">(</span><span class="str">'hello'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'hello world'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// true</span></li><li class="L1"><span class="pln">isSubsequence</span><span class="pun">(</span><span class="str">'sing'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'sting'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// true</span></li><li class="L2"><span class="pln">isSubsequence</span><span class="pun">(</span><span class="str">'abc'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'abracadabra'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// true</span></li><li class="L3"><span class="pln">isSubsequence</span><span class="pun">(</span><span class="str">'abc'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'acb'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// false (order matters)</span></li></ol></pre></div></div>
+      <p>Your solution MUST have AT&nbsp;LEAST the following complexities: </p>
+      <p>Time Complexity - O(N + M)</p>
+      <p>Space Complexity - O(1)</p>
+    </div>
+
+
+    <div id="maxSubarraySum" class="tabcontent">
+        <h1 align="center"  style="font-style: oblique;">Max Subarray Sum</h1>
+        
+        <div class="instructions--content--1JI0g"><div class="instructions--title--3vSDk" data-purpose="exercise-title"></div><div data-purpose="safely-set-inner-html:rich-text-viewer:html" class="instructions--description--2Qd_w"><p>Given an array of integers and a number, write a function called <b>maxSubarraySum</b>, which finds the maximum sum of a subarray with the length of the number passed to the function. </p>
+ 
+            <p>Note that a subarray must consist of <i>consecutive</i> elements from the original array. In the first example below, [100, 200, 300] is a subarray of the original array, but [100, 300] is not.</p>
+            <div class="ud-component--base-components--code-block"><div><pre class="prettyprint linenums prettyprinted" role="presentation" style=""><ol class="linenums"><li class="L0"><span class="pln">maxSubarraySum</span><span class="pun">([</span><span class="lit">100</span><span class="pun">,</span><span class="lit">200</span><span class="pun">,</span><span class="lit">300</span><span class="pun">,</span><span class="lit">400</span><span class="pun">],</span><span class="pln"> </span><span class="lit">2</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 700</span></li><li class="L1"><span class="pln">maxSubarraySum</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">23</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">1</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">20</span><span class="pun">],</span><span class="pln"> </span><span class="lit">4</span><span class="pun">)</span><span class="pln">  </span><span class="com">// 39 </span></li><li class="L2"><span class="pln">maxSubarraySum</span><span class="pun">([-</span><span class="lit">3</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,-</span><span class="lit">2</span><span class="pun">,</span><span class="lit">6</span><span class="pun">,-</span><span class="lit">1</span><span class="pun">],</span><span class="pln"> </span><span class="lit">2</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 5</span></li><li class="L3"><span class="pln">maxSubarraySum</span><span class="pun">([</span><span class="lit">3</span><span class="pun">,-</span><span class="lit">2</span><span class="pun">,</span><span class="lit">7</span><span class="pun">,-</span><span class="lit">4</span><span class="pun">,</span><span class="lit">1</span><span class="pun">,-</span><span class="lit">1</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,-</span><span class="lit">2</span><span class="pun">,</span><span class="lit">1</span><span class="pun">],</span><span class="lit">2</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 5</span></li><li class="L4"><span class="pln">maxSubarraySum</span><span class="pun">([</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">],</span><span class="pln"> </span><span class="lit">3</span><span class="pun">)</span><span class="pln"> </span><span class="com">// null</span></li></ol></pre></div></div>
+            <p>Constraints:</p>
+            <p>Time Complexity - <b>O(N)</b></p>
+            <p>Space Complexity - <b>O(1)</b></p></div>
+        </div>
+    </div>
+
+    <div id="minSubArrayLen" class="tabcontent">
+      <h1 align="center"  style="font-style: oblique;">Min Subarray Length</h1>
+      
+      <p>Write a function called <b>minSubArrayLen</b> which accepts two parameters - an array of positive integers and a positive integer. </p>
+      <p>This function should return the minimal length of a <b>contiguous</b> subarray of which the sum is greater than or equal to the integer passed to the function. If there isn't one, return 0 instead.<br>Examples:</p>
+      <div class="ud-component--base-components--code-block"><div><pre class="prettyprint linenums prettyprinted" role="presentation" style=""><ol class="linenums"><li class="L0"><span class="pln">minSubArrayLen</span><span class="pun">([</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,</span><span class="lit">3</span><span class="pun">],</span><span class="pln"> </span><span class="lit">7</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 2 -&gt; because [4,3] is the smallest subarray</span></li><li class="L1"><span class="pln">minSubArrayLen</span><span class="pun">([</span><span class="lit">2</span><span class="pun">,</span><span class="lit">1</span><span class="pun">,</span><span class="lit">6</span><span class="pun">,</span><span class="lit">5</span><span class="pun">,</span><span class="lit">4</span><span class="pun">],</span><span class="pln"> </span><span class="lit">9</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 2 -&gt; because [5,4] is the smallest subarray</span></li><li class="L2"><span class="pln">minSubArrayLen</span><span class="pun">([</span><span class="lit">3</span><span class="pun">,</span><span class="lit">1</span><span class="pun">,</span><span class="lit">7</span><span class="pun">,</span><span class="lit">11</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">9</span><span class="pun">,</span><span class="lit">8</span><span class="pun">,</span><span class="lit">21</span><span class="pun">,</span><span class="lit">62</span><span class="pun">,</span><span class="lit">33</span><span class="pun">,</span><span class="lit">19</span><span class="pun">],</span><span class="pln"> </span><span class="lit">52</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 1 -&gt; because [62] is greater than 52</span></li><li class="L3"><span class="pln">minSubArrayLen</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,</span><span class="lit">16</span><span class="pun">,</span><span class="lit">22</span><span class="pun">,</span><span class="lit">5</span><span class="pun">,</span><span class="lit">7</span><span class="pun">,</span><span class="lit">8</span><span class="pun">,</span><span class="lit">9</span><span class="pun">,</span><span class="lit">10</span><span class="pun">],</span><span class="lit">39</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 3</span></li><li class="L4"><span class="pln">minSubArrayLen</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,</span><span class="lit">16</span><span class="pun">,</span><span class="lit">22</span><span class="pun">,</span><span class="lit">5</span><span class="pun">,</span><span class="lit">7</span><span class="pun">,</span><span class="lit">8</span><span class="pun">,</span><span class="lit">9</span><span class="pun">,</span><span class="lit">10</span><span class="pun">],</span><span class="lit">55</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 5</span></li><li class="L5"><span class="pln">minSubArrayLen</span><span class="pun">([</span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">],</span><span class="pln"> </span><span class="lit">11</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 2</span></li><li class="L6"><span class="pln">minSubArrayLen</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,</span><span class="lit">16</span><span class="pun">,</span><span class="lit">22</span><span class="pun">,</span><span class="lit">5</span><span class="pun">,</span><span class="lit">7</span><span class="pun">,</span><span class="lit">8</span><span class="pun">,</span><span class="lit">9</span><span class="pun">,</span><span class="lit">10</span><span class="pun">],</span><span class="lit">95</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 0</span></li></ol></pre></div></div>
+      <p>Time Complexity - O(n)</p>
+      <p>Space Complexity - O(1)</p>
+    </div>
+
+    <div id="findLongestSubstring" class="tabcontent">
+      <h1 align="center"  style="font-style: oblique;">Find Longest Substring</h1>
+      
+      <p>Write a function called <b>findLongestSubstring, </b>which accepts a string and returns the length of the longest substring with all distinct characters.</p>
+      <div class="ud-component--base-components--code-block"><div><pre class="prettyprint linenums prettyprinted" role="presentation" style=""><ol class="linenums"><li class="L0"><span class="pln">findLongestSubstring</span><span class="pun">(</span><span class="str">''</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 0</span></li><li class="L1"><span class="pln">findLongestSubstring</span><span class="pun">(</span><span class="str">'rithmschool'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 7</span></li><li class="L2"><span class="pln">findLongestSubstring</span><span class="pun">(</span><span class="str">'thisisawesome'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 6</span></li><li class="L3"><span class="pln">findLongestSubstring</span><span class="pun">(</span><span class="str">'thecatinthehat'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 7</span></li><li class="L4"><span class="pln">findLongestSubstring</span><span class="pun">(</span><span class="str">'bbbbbb'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 1</span></li><li class="L5"><span class="pln">findLongestSubstring</span><span class="pun">(</span><span class="str">'longestsubstring'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 8</span></li><li class="L6"><span class="pln">findLongestSubstring</span><span class="pun">(</span><span class="str">'thisishowwedoit'</span><span class="pun">)</span><span class="pln"> </span><span class="com">// 6</span></li></ol></pre></div></div>
+      <p>Time Complexity - <b>O(n)</b></p>
+    </div>
+
+    <div id="DivideConquer" class="tabcontent">
+        <h1 align="center">Divide and Conquer</h1>
+        
+        <h3 align="center">To be added...</h3>
+
+        <ol class="linenums"><li class="L0"><span class="kwd">let</span><span class="pln"> doublyLinkedList </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">DoublyLinkedList</span><span class="pun">;</span></li><li class="L1"><span class="pln">doublyLinkedList</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="lit">5</span><span class="pun">).</span><span class="pln">push</span><span class="pun">(</span><span class="lit">10</span><span class="pun">).</span><span class="pln">push</span><span class="pun">(</span><span class="lit">15</span><span class="pun">).</span><span class="pln">push</span><span class="pun">(</span><span class="lit">20</span><span class="pun">)</span></li><li class="L2"><span class="pln">doublyLinkedList</span><span class="pun">.</span><span class="pln">reverse</span><span class="pun">();</span><span class="pln"> </span><span class="com">// singlyLinkedList;</span></li><li class="L3"><span class="pln">doublyLinkedList</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> </span><span class="com">// 4</span></li><li class="L4"><span class="pln">doublyLinkedList</span><span class="pun">.</span><span class="pln">head</span><span class="pun">.</span><span class="pln">val</span><span class="pun">);</span><span class="pln"> </span><span class="com">// 20</span></li><li class="L5"><span class="pln">doublyLinkedList</span><span class="pun">.</span><span class="pln">head</span><span class="pun">.</span><span class="kwd">next</span><span class="pun">.</span><span class="pln">val</span><span class="pun">;</span><span class="pln"> </span><span class="com">// 15</span></li><li class="L6"><span class="pln">doublyLinkedList</span><span class="pun">.</span><span class="pln">head</span><span class="pun">.</span><span class="kwd">next</span><span class="pun">.</span><span class="kwd">next</span><span class="pun">.</span><span class="pln">val</span><span class="pun">;</span><span class="pln"> </span><span class="com">// 10</span></li><li class="L7"><span class="pln">doublyLinkedList</span><span class="pun">.</span><span class="pln">head</span><span class="pun">.</span><span class="kwd">next</span><span class="pun">.</span><span class="kwd">next</span><span class="pun">.</span><span class="kwd">next</span><span class="pun">.</span><span class="pln">val</span><span class="pun">;</span><span class="pln"> </span><span class="com">// 5</span></li></ol>
+    </div>
+
+    <div id="solution" class="tabcontent1">
+        
+      <div class="scroll" id="code">
+        <h3> Following is your solution for the given problem:</h3>
+        <pre id='yourCode'>
+          
+      </pre>
+      </div>
+
+        <br><br>
+        <input class="btn" type="button" value=" Run " onclick="run()">
+        <br><br>
+ 
+        <label>Output:</label> <br>
+        <textarea disabled id="output" placeholder="Output" rows="5" cols="40"></textarea>
+       
+        <br><br>
+    </div>
+    
+
+    <script>
+      let problem='';
+        function factorial(num){
+          if(num < 0) return 0;
+          if(num === 1 || num === 0) return 1;
+          
+          return num * factorial(num - 1);
+        }
+
+        function validAnagram(str1, str2){
+          if(str1.length !== str2.length)
+            return false;
+            
+          let freqCount1 = {};
+          let freqCount2 = {};
+          
+          for(let char1 of str1) {
+              freqCount1[char1] = (freqCount1[char1] || 0) + 1;
+          }
+          
+            for(let char2 of str2) {
+              freqCount2[char2] = (freqCount2[char2] || 0) + 1;
+          }
+          
+          for (let key in freqCount1) {
+              if(!(key in freqCount2))
+                return false;
+                
+              if(freqCount2[key] !== freqCount1[key])
+                return false;
+          }
+          return true;
+        }
+
+        function run() {
+          if(problem === 'validAnagram')
+            document.getElementById('output').innerHTML = validAnagram('anagram', 'nagaram');
+          else if(problem === 'areThereDuplicates')
+            document.getElementById('output').innerHTML = factorial(7);
+        } 
+
+        function openPage(pageName,elmnt,color) {
+            problem = pageName;
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+            
+            let data;
+            if(problem === 'validAnagram') {
+              let data = 
+              `function validAnagram(str1, str2){
+
+    if(str1.length !== str2.length)
+      return false;
+      
+    let freqCount1 = {};
+    let freqCount2 = {};
+
+    for(let char1 of str1) {
+        freqCount1[char1] = (freqCount1[char1] || 0) + 1;
+    }
+
+      for(let char2 of str2) {
+        freqCount2[char2] = (freqCount2[char2] || 0) + 1;
+    }
+
+    for (let key in freqCount1) {
+        if(!(key in freqCount2))
+          return false;
+          
+        if(freqCount2[key] !== freqCount1[key])
+          return false;
+    }
+    return true;
+}`;
+              document.getElementById('yourCode').innerHTML = data;
+            }
+        }
+        
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+       
+  </body>   
+</html> 
